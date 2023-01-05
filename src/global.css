@@ -1,6 +1,4 @@
 :root {
-	--white: #ffffff;
-
 	--purple-300: #8284fa;
 	--purple-500: #5e60ce;
 
@@ -22,6 +20,11 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+}
+
+:focus {
+	outline: transparent;
+	box-shadow: 0 0 0 1px var(--purple-500);
 }
 
 body {
