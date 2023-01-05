@@ -37,4 +37,9 @@
 	font-weight: bold;
 
 	border: 1px solid var(--gray-700);
+	transition: background-color 200ms;
+}
+
+.formInput button:hover {
+	background-color: var(--blue-300);
 }
