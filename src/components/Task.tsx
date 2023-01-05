@@ -6,30 +6,46 @@ import style from "./Task.module.css";
 
 interface TaskProps {
 	task: tk;
+	onDeleteTask: (id: string) => void;
+	onCompleteTask: (id: string) => void;
+	onReturnTask: (id: string) => void;
 }
 
-export function Task({ task }: TaskProps) {
-	const [validated, setValidated] = useState(false);
+export function Task({
+	task,
+	onDeleteTask,
+	onCompleteTask,
+	onReturnTask,
+}: TaskProps) {
+	function handleDeleteTask() {
+		onDeleteTask(task.id);
+	}
+
+	function handleCompleteTask() {
+		onCompleteTask(task.id);
+	}
+
+	function handleReturnTask() {
+		onReturnTask(task.id);
+	}
 
 	return (
 		<div className={style.task}>
 			<div>
-				{validated ? (
-					<Check
-						size={20}
-						className={style.check}
-						onClick={() => setValidated(false)}
-					/>
+				{task.isCompleted ? (
+					<Check size={20} className={style.check} onClick={handleReturnTask} />
 				) : (
 					<Circle
 						size={20}
 						className={style.uncheck}
-						onClick={() => setValidated(true)}
+						onClick={handleCompleteTask}
 					/>
 				)}
-				<label>{task.content}</label>
+				<label className={task.isCompleted ? style.complete : style.incomplete}>
+					{task.content}
+				</label>
 			</div>
-			<Trash size={20} className={style.icon} />
+			<Trash onClick={handleDeleteTask} size={20} className={style.icon} />
 		</div>
 	);
 }

@@ -5,9 +5,17 @@ import { Task } from "./Task";
 
 interface ListProps {
 	tasks: tk[];
+	onDeleteTask: (id: string) => void;
+	onCompleteTask: (id: string) => void;
+	onReturnTask: (id: string) => void;
 }
 
-export function List({ tasks }: ListProps) {
+export function List({
+	tasks,
+	onDeleteTask,
+	onCompleteTask,
+	onReturnTask,
+}: ListProps) {
 	const totalTasks = tasks.length;
 	const tasksIsEmpty = totalTasks == 0;
 	const totalCompletedTasks = tasks.filter((task) => task.isCompleted).length;
@@ -35,7 +43,13 @@ export function List({ tasks }: ListProps) {
 			) : (
 				<div className={style.tasks}>
 					{tasks.map((item) => (
-						<Task task={item} key={item.id} />
+						<Task
+							task={item}
+							onDeleteTask={onDeleteTask}
+							onCompleteTask={onCompleteTask}
+							onReturnTask={onReturnTask}
+							key={item.id}
+						/>
 					))}
 				</div>
 			)}

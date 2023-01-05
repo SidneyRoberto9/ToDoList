@@ -17,7 +17,26 @@ export function App() {
 			isCompleted: false,
 		};
 		setTasks((prev) => [...prev, newTask]);
-		console.log(tasks);
+	};
+
+	const onDeleteTask = (id: string) => {
+		setTasks((prev) => prev.filter((task) => task.id !== id));
+	};
+
+	const onCompleteTask = (id: string) => {
+		setTasks((prev) =>
+			prev.map((task) =>
+				task.id === id ? { ...task, isCompleted: true } : task
+			)
+		);
+	};
+
+	const onReturnTask = (id: string) => {
+		setTasks((prev) =>
+			prev.map((task) =>
+				task.id === id ? { ...task, isCompleted: false } : task
+			)
+		);
 	};
 
 	return (
@@ -26,7 +45,12 @@ export function App() {
 
 			<main className={style.main}>
 				<Input onAddTask={onAddTask} />
-				<List tasks={tasks} />
+				<List
+					tasks={tasks}
+					onCompleteTask={onCompleteTask}
+					onDeleteTask={onDeleteTask}
+					onReturnTask={onReturnTask}
+				/>
 			</main>
 		</div>
 	);
