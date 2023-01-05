@@ -2,10 +2,12 @@ import "./App.css";
 
 import { useState } from "react";
 
+import { Header } from "./components/Header";
+
 export function App() {
 	return (
 		<div>
-			<h1>Initial Project</h1>
+			<Header />
 		</div>
 	);
 }
