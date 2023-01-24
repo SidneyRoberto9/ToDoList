@@ -1,7 +1,7 @@
 # ToDo List
 
-![GitHub repo size](https://img.shields.io/github/repo-size/SidneyRoberto9/ToDoList-Ignite?style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/SidneyRoberto9/ToDoList-Ignite?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/SidneyRoberto9/todo-list?style=for-the-badge)
+![GitHub language count](https://img.shields.io/github/languages/count/SidneyRoberto9/todo-list?style=for-the-badge)
 
 <a href="https://todo-list-sid.netlify.app/" target="_blank">Demo</a>
 
@@ -26,7 +26,7 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 Para usar a ToDo List, siga estas etapas:
 
 ```
-git clone https://github.com/SidneyRoberto9/ToDoList-Ignite
+git clone https://github.com/SidneyRoberto9/todo-list
 
 yarn ou npm i
 
